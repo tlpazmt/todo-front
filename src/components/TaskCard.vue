@@ -1,9 +1,6 @@
 <template>
   <v-card class="task-card rounded-lg">
-    <v-card-title>{{ task.title }}</v-card-title>
-    <v-card-text>
-      {{ task.description }}
-    </v-card-text>
+    <v-card-title class="text-subtitle-2">{{ task.title }}</v-card-title>
   </v-card>
 </template>
 

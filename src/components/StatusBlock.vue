@@ -7,8 +7,9 @@
       </v-card-text>
     </div>
     <v-card-actions>
-<!--      TODO plus icon-->
-      <v-btn block class="text-caption"><v-icon icon="mdi-check-circle" start></v-icon>Добавить задачу</v-btn>
+      <v-btn block class="text-caption" @click="$emit('add-task', title)">
+        <v-icon icon="mdi-check-circle" start></v-icon>Добавить задачу
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -18,18 +19,18 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'To do'
+      default: ''
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
 .status-block {
   width: 272px;
-  max-height: 100vh;
+  max-height: calc(100vh);
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .scrollable-body {

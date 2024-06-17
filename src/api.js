@@ -33,4 +33,19 @@ async function getTasks() {
   return response.data;
 }
 
-export { api, getStatuses, getTasks };
+async function getPriorities() {
+  const response = await api.get('http://localhost:8000/api/priorities');
+  return response.data;
+}
+
+async function editTask(item) {
+  const response = await api.put(`http://localhost:8000/api/tasks/${item.id}`, item);
+  return response.data;
+}
+
+async function createTask(item) {
+  const response = await api.post('http://localhost:8000/api/tasks', item);
+  return response.data;
+}
+
+export { api, getStatuses, getTasks, getPriorities, editTask, createTask };
