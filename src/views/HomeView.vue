@@ -2,9 +2,7 @@
   <v-container fluid class="h-100" style="background-color: #ADD8E6;">
     <v-row>
       <v-col class="flex-0-0-0" v-for="status in statuses" :key="status.id">
-        <StatusBlock :title="status.title" @add-task="editItem(null, status.id)">
-          <TaskCard v-for="task in tasksByStatus[status.id]" :key="task.id" :task="task" @click.native="editItem(task)" />
-        </StatusBlock>
+        <StatusBlock :status="status" :tasks="tasksByStatus[status.id]" @add-task="editItem" @refreshTasks="fetchTasks()" />
       </v-col>
     </v-row>
     <TaskForm v-model="dialog" :item="editedItem" :statuses="statuses" :priorities="priorities" @closeForm="closeForm()"  @refreshTasks="fetchTasks()"/>
